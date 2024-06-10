@@ -14,14 +14,14 @@
           </li>
           {{-- MANAGER --}}
           <li class="nav-item">
-            <a class="nav-link {{ Route::currentRouteName() === 'manager.home' || Route::currentRouteName() === 'officer.form' ? 'active' : '' }}" aria-current="page" href="{{ route('manager.home')}}">Approval Barang</a>
+            <a class="nav-link {{ Route::currentRouteName() === 'manager.home' ? 'active' : '' }}" aria-current="page" href="{{ route('manager.home')}}">Approval Barang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Route::currentRouteName() === 'manager.history' || Route::currentRouteName() === 'officer.form' ? 'active' : '' }}" aria-current="page" href="{{ route('manager.history')}}">History Approval Barang</a>
+            <a class="nav-link {{ Route::currentRouteName() === 'manager.history' ? 'active' : '' }}" aria-current="page" href="{{ route('manager.history')}}">History Approval Barang</a>
           </li>
           {{-- FINANCE --}}
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">List Pengajuan Barang</a>
+            <a class="nav-link {{ Route::currentRouteName() === 'finance.home' ? 'active' : '' }}" aria-current="page" href="{{ route('finance.home') }}">List Pengajuan Barang</a>
           </li>
         </ul>
         <ul class="navbar-nav">

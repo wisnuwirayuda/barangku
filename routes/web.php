@@ -21,3 +21,7 @@ Route::get('/manager', function () {
 Route::get('/manager/history', function () {
     return view('pages.manager.history');
 })->name('manager.history');
+
+Route::get('/finance', function () {
+    return view('pages.finance.home');
+})->name('finance.home');
