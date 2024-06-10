@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             [
                 'username'      => 'officer',
                 'email'         => 'officer@mrg.com',
+                'role'          => 'officer',
                 'password'      => Hash::make('officer'),
                 'created_at'    => now(),
                 'updated_at'    => now(),
@@ -25,6 +26,7 @@ class UserSeeder extends Seeder
             [
                 'username'      => 'manager',
                 'email'         => 'manager@mrg.com',
+                'role'          => 'manager',
                 'password'      => Hash::make('manager'),
                 'created_at'    => now(),
                 'updated_at'    => now(),
@@ -32,6 +34,7 @@ class UserSeeder extends Seeder
             [
                 'username'      => 'finance',
                 'email'         => 'finance@mrg.com',
+                'role'          => 'finance',
                 'password'      => Hash::make('finance'),
                 'created_at'    => now(),
                 'updated_at'    => now(),
