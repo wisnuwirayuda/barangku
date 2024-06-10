@@ -8,8 +8,20 @@
       </button>
       <div class="collapse navbar-collapse flex justify-content-between ms-2" id="navbarSupportedContent">
         <ul class="navbar-nav">
+          {{-- OFFICER --}}
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Pengajuan Barang</a>
+            <a class="nav-link {{ Route::currentRouteName() === 'officer.home' || Route::currentRouteName() === 'officer.form' ? 'active' : '' }}" aria-current="page" href="{{ route('officer.home')}}">Pengajuan Barang</a>
+          </li>
+          {{-- MANAGER --}}
+          <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() === 'manager.home' || Route::currentRouteName() === 'officer.form' ? 'active' : '' }}" aria-current="page" href="{{ route('manager.home')}}">Approval Barang</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() === 'manager.history' || Route::currentRouteName() === 'officer.form' ? 'active' : '' }}" aria-current="page" href="{{ route('manager.history')}}">History Approval Barang</a>
+          </li>
+          {{-- FINANCE --}}
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">List Pengajuan Barang</a>
           </li>
         </ul>
         <ul class="navbar-nav">
