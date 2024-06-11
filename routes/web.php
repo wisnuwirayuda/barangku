@@ -8,18 +8,20 @@ Route::get('/', [LoginController::class, 'show'])->name('login');
 Route::post('login', [LoginController::class, 'login'])->name('auth.login');
 Route::post('logout', [LoginController::class, 'logout'])->name('auth.logout');
 
-Route::get('officer', [OfficerController::class, "show"])->name('officer.home');
-Route::get('officer/form', [OfficerController::class, "showForm"])->name('officer.form');
-Route::post('form', [OfficerController::class, "create"])->name('officer.create.form');
+Route::middleware(['auth'])->group(function () {
+    Route::get('officer', [OfficerController::class, "show"])->name('officer.home');
+    Route::get('officer/form', [OfficerController::class, "showForm"])->name('officer.form');
+    Route::post('form', [OfficerController::class, "create"])->name('officer.create.form');
 
-Route::get('manager', function () {
-    return view('pages.manager.home');
-})->name('manager.home');
+    Route::get('manager', function () {
+        return view('pages.manager.home');
+    })->name('manager.home');
 
-Route::get('manager/history', function () {
-    return view('pages.manager.history');
-})->name('manager.history');
+    Route::get('manager/history', function () {
+        return view('pages.manager.history');
+    })->name('manager.history');
 
-Route::get('finance', function () {
-    return view('pages.finance.home');
-})->name('finance.home');
+    Route::get('finance', function () {
+        return view('pages.finance.home');
+    })->name('finance.home');
+});

@@ -17,7 +17,7 @@ class LoginController extends Controller
         $credentials = $request->validated();
 
         if (Auth::attempt($credentials)) {
-            $user = Auth::user($credentials);
+            $user = Auth::user();
             
             switch ($user->role) {
                 case 'finance':
