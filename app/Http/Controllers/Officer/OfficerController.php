@@ -38,6 +38,35 @@ class OfficerController extends Controller
         return redirect()->route('officer.home')->with('success', 'Barang berhasil ditambahkan.');
     }
 
+    public function edit($id) {
+        $dataBarang = Barang::findOrFail($id);
+    
+        return view('pages.officer.form')->with('dataBarang', $dataBarang);
+    }
+
+    public function update(Request $request, $id) {
+        dd($request->all());
+        $validatedData = $request->validate([
+            'nama_barang'       => 'required|string|max:255',
+            'quantity'          => 'required|integer',
+            'alamat'            => 'required|string',
+            'nama_bank'         => 'required|string|max:255',
+            'nomor_rekening'    => 'required|string|max:255',
+        ]);
+
+        $barang = Barang::findOrFail($id);
+
+        $barang->nama_barang = $request->nama_barang;
+        $barang->quantity = $request->quantity;
+        $barang->alamat = $request->alamat;
+        $barang->nama_bank = $request->nama_bank;
+        $barang->nomor_rekening = $request->nomor_rekening;
+    
+        $barang->save();
+    
+        return redirect()->route('officer.home');
+    }
+
     public function delete($id) {
         $barang = Barang::findOrFail($id);
 

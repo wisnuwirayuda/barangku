@@ -34,7 +34,7 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ route('officer.form') }}" class="btn btn-warning">Edit</a>
+                                <a href="{{ route('officer.edit', $barang->id) }}" class="btn btn-warning">Edit</a>
                                 
                                 <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $barang->id }}">Hapus</a>
                                 <!-- Modal -->
