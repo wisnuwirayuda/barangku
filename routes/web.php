@@ -12,6 +12,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('officer', [OfficerController::class, "show"])->name('officer.home');
     Route::get('officer/form', [OfficerController::class, "showForm"])->name('officer.form');
     Route::post('form', [OfficerController::class, "create"])->name('officer.create.form');
+    Route::delete('delete/{id}', [OfficerController::class, "delete"])->name('officer.delete');
 
     Route::get('manager', function () {
         return view('pages.manager.home');

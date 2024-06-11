@@ -12,7 +12,9 @@ use Illuminate\Support\Str;
 class OfficerController extends Controller
 {
     public function show() {
-        return view('pages.officer.home');
+        $dataBarang = Barang::all();
+
+        return view('pages.officer.home', compact('dataBarang'));
     }
 
     public function showForm() {
@@ -21,6 +23,7 @@ class OfficerController extends Controller
 
     public function create(PengajuanBarang $request) {
         $credentials = $request->validated();
+        $user = Auth::user();
 
         Barang::create([
             'nama_barang' => $credentials['nama-barang'],
@@ -28,10 +31,18 @@ class OfficerController extends Controller
             'alamat' => $credentials['alamat'],
             'nama_bank' => $credentials['nama-bank'],
             'nomor_rekening' => $credentials['nomor-rekening'],
-            'user_id' => 1,
+            'user_id' => $user->id,
             'slug' => Str::slug($credentials['nama-barang'], '-')
         ]);
 
         return redirect()->route('officer.home')->with('success', 'Barang berhasil ditambahkan.');
+    }
+
+    public function delete($id) {
+        $barang = Barang::findOrFail($id);
+
+        $barang->delete();
+
+        return redirect()->route('officer.home');
     }
 }

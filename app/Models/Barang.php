@@ -18,6 +18,7 @@ class Barang extends Model
         'nama_bank',
         'nomor_rekening',
         'user_id',
-        'slug'
+        'slug',
+        'status'
     ];
 }
