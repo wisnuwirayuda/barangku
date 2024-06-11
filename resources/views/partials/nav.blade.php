@@ -9,21 +9,29 @@
       <div class="collapse navbar-collapse flex justify-content-between ms-2" id="navbarSupportedContent">
         <ul class="navbar-nav">
           @auth
-            {{-- OFFICER --}}
-            <li class="nav-item">
-              <a class="nav-link {{ Route::currentRouteName() === 'officer.home' || Route::currentRouteName() === 'officer.form' ? 'active' : '' }}" aria-current="page" href="{{ route('officer.home')}}">Pengajuan Barang</a>
-            </li>
-            {{-- MANAGER --}}
-            <li class="nav-item">
-              <a class="nav-link {{ Route::currentRouteName() === 'manager.home' ? 'active' : '' }}" aria-current="page" href="{{ route('manager.home')}}">Approval Barang</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link {{ Route::currentRouteName() === 'manager.history' ? 'active' : '' }}" aria-current="page" href="{{ route('manager.history')}}">History Approval Barang</a>
-            </li>
-            {{-- FINANCE --}}
-            <li class="nav-item">
-              <a class="nav-link {{ Route::currentRouteName() === 'finance.home' ? 'active' : '' }}" aria-current="page" href="{{ route('finance.home') }}">List Pengajuan Barang</a>
-            </li>
+            @if (Auth::user()->role=="officer")
+              {{-- OFFICER --}}
+              <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() === 'officer.home' || Route::currentRouteName() === 'officer.form' ? 'active' : '' }}" aria-current="page" href="{{ route('officer.home')}}">Pengajuan Barang</a>
+              </li>
+            @endif
+
+            @if (Auth::user()->role=="manager")
+              {{-- MANAGER --}}
+              <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() === 'manager.home' ? 'active' : '' }}" aria-current="page" href="{{ route('manager.home')}}">Approval Barang</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() === 'manager.history' ? 'active' : '' }}" aria-current="page" href="{{ route('manager.history')}}">History Approval Barang</a>
+              </li>
+            @endif
+
+            @if (Auth::user()->role=="finance")
+              {{-- FINANCE --}}
+              <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() === 'finance.home' ? 'active' : '' }}" aria-current="page" href="{{ route('finance.home') }}">List Pengajuan Barang</a>
+              </li>
+            @endif
           @endauth
         </ul>
 

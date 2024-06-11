@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->string('nama_barang');
+            $table->string('quantity');
             $table->string('slug');
             $table->text('alamat');
             $table->string('nama_bank');
