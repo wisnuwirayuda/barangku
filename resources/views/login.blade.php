@@ -25,7 +25,7 @@
                 </div>
                 <div class="row">
                     <label class="col-sm-2 col-form-label"></label>
-                    <div class="col-sm-10 d-grid">
+                    <div class="col-sm-1">
                         <button type="submit" class="btn btn-primary rounded-2 text-white">Log In</button>
                     </div>
                 </div>

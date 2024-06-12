@@ -19,7 +19,7 @@
                     <div class="mb-3 row">
                         <label for="quantity" class="col-sm-2 col-form-label">Quantity<span style="color: red">*</span></label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control @error('quantity') is-invalid @enderror" id="quantity" name="quantity" placeholder="Masukkan Quantity" value="{{ old('quantity') }}">
+                            <input type="number" class="form-control @error('quantity') is-invalid @enderror" id="quantity" name="quantity" placeholder="Masukkan Quantity" value="{{ old('quantity') }}" autocomplete="off">
                             @error('quantity')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -28,7 +28,7 @@
                     <div class="mb-3 row">
                         <label for="alamat" class="col-sm-2 col-form-label">Alamat Pembelian Barang<span style="color: red">*</span></label>
                         <div class="col-sm-10">
-                            <textarea class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat">{{ old('alamat') }}</textarea>
+                            <textarea class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat" autocomplete="off">{{ old('alamat') }}</textarea>
                             @error('alamat')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -47,7 +47,7 @@
                     <div class="mb-3 row">
                         <label for="nomor-rekening" class="col-sm-2 col-form-label">Nomor Rekening<span style="color: red">*</span></label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control @error('nomor-rekening') is-invalid @enderror" id="nomor-rekening" name="nomor-rekening" placeholder="Masukkan Nomor Rekening" value="{{ old('nomor-rekening') }}">
+                            <input type="text" class="form-control @error('nomor-rekening') is-invalid @enderror" id="nomor-rekening" name="nomor-rekening" placeholder="Masukkan Nomor Rekening" value="{{ old('nomor-rekening') }}" autocomplete="off">
                             @error('nomor-rekening')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror

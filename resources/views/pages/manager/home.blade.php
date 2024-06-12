@@ -34,7 +34,9 @@
                                 @endif
                             </td>
                             <td>
-                                <a class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $barang->id }}">Ubah Status</a>
+                                <a class="btn btn-info">Detail</a>
+
+                                <a class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $barang->id }}">Ubah Status</a>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal{{ $barang->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-lg">
