@@ -3,6 +3,9 @@
 @section('body')
     <section>
         <div class="container py-5">
+            <div class="d-flex justify-content-center mb-5">
+                <img src="{{ url('assets/icons/Logo.png') }}" alt="logo-wisnu" height="150" style="border-radius: 10px;" />
+            </div>
             <form action="{{ route('auth.login') }}" method="POST">
                 @csrf
                 <div class="mb-3 row">
