@@ -22,5 +22,7 @@ class Barang extends Model
         'status',
         'alasan',
         'manager_id',
+        'bukti_transfer',
+        'finance_id',
     ];
 }

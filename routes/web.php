@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Officer\OfficerController;
 use App\Http\Controllers\Manager\ManagerController;
+use App\Http\Controllers\Finance\FinanceController;
 
 Route::get('/', [LoginController::class, 'show'])->name('login');
 Route::post('login', [LoginController::class, 'login'])->name('auth.login');
@@ -21,7 +22,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('manager/history', [ManagerController::class, "history"])->name('manager.history');
     Route::put('update/{id}', [ManagerController::class, "update"])->name('manager.update');
 
-    Route::get('finance', function () {
-        return view('pages.finance.home');
-    })->name('finance.home');
+    Route::get('finance', [FinanceController::class, "show"])->name('finance.home');
+    Route::put('update/{id}', [FinanceController::class, "update"])->name('finance.update');
 });
