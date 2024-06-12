@@ -26,13 +26,13 @@ class OfficerController extends Controller
         $user = Auth::user();
 
         Barang::create([
-            'nama_barang' => $credentials['nama-barang'],
-            'quantity' => $credentials['quantity'],
-            'alamat' => $credentials['alamat'],
-            'nama_bank' => $credentials['nama-bank'],
+            'nama_barang'    => $credentials['nama-barang'],
+            'quantity'       => $credentials['quantity'],
+            'alamat'         => $credentials['alamat'],
+            'nama_bank'      => $credentials['nama-bank'],
             'nomor_rekening' => $credentials['nomor-rekening'],
-            'user_id' => $user->id,
-            'slug' => Str::slug($credentials['nama-barang'], '-')
+            'user_id'        => $user->id,
+            'slug'           => Str::slug($credentials['nama-barang'], '-')
         ]);
 
         return redirect()->route('officer.home')->with('success', 'Barang berhasil ditambahkan.');
@@ -41,10 +41,10 @@ class OfficerController extends Controller
     public function edit($id) {
         $dataBarang = Barang::findOrFail($id);
     
-        return view('pages.officer.form')->with('dataBarang', $dataBarang);
+        return view('pages.officer.form', compact('dataBarang'));
     }
 
-    public function update(Request $request, $id) {
+    public function updateForm(Request $request, $id) {
         $validatedData = $request->validate([
             'nama_barang'       => 'required|string|max:255',
             'quantity'          => 'required|integer',
@@ -54,12 +54,14 @@ class OfficerController extends Controller
         ]);
 
         $barang = Barang::findOrFail($id);
+        $user = Auth::user();
 
-        $barang->nama_barang = $request->nama_barang;
-        $barang->quantity = $request->quantity;
-        $barang->alamat = $request->alamat;
-        $barang->nama_bank = $request->nama_bank;
+        $barang->nama_barang    = $request->nama_barang;
+        $barang->quantity       = $request->quantity;
+        $barang->alamat         = $request->alamat;
+        $barang->nama_bank      = $request->nama_bank;
         $barang->nomor_rekening = $request->nomor_rekening;
+        $barang->user_id        = $user->id;
     
         $barang->save();
     

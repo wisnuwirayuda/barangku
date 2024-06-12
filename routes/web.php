@@ -15,7 +15,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('officer/form', [OfficerController::class, "showForm"])->name('officer.form');
     Route::post('form', [OfficerController::class, "create"])->name('officer.create.form');
     Route::get('edit/{id}', [OfficerController::class, "edit"])->name('officer.edit');
-    Route::put('update/{id}', [OfficerController::class, "update"])->name('officer.update');
+    Route::put('updateForm/{id}', [OfficerController::class, "updateForm"])->name('officer.update');
     Route::delete('delete/{id}', [OfficerController::class, "delete"])->name('officer.delete');
 
     Route::get('manager', [ManagerController::class, "show"])->name('manager.home');

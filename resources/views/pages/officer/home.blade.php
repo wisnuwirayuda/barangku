@@ -34,7 +34,64 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ route('officer.edit', $barang->id) }}" class="btn btn-warning">Edit</a>
+                                <a class="btn btn-info">Detail</a>
+
+                                <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalUpdate{{ $barang->id }}">Edit</a>
+                                <!-- Modal -->
+                                <div class="modal modal-lg fade" id="modalUpdate{{ $barang->id }}" tabindex="-1" aria-labelledby="modalUpdateLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="modalUpdateLabel">Edit {{ $barang->nama_barang }}</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <form action="{{ route('officer.update', $barang->id) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                    <div class="modal-body">
+                                                        <div class="container-fluid">
+                                                            <div class="mb-3 row">
+                                                                <label for="nama_barang" class="col-sm-3 col-form-label">Nama Barang<span style="color: red">*</span></label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" id="nama_barang" name="nama_barang" placeholder="Masukkan Nama Barang" value="{{ $barang->nama_barang }}" autocomplete="off" autofocus>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-3 row">
+                                                                <label for="quantity" class="col-sm-3 col-form-label">Quantity<span style="color: red">*</span></label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Masukkan Quantity" value="{{ $barang->quantity }}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-3 row">
+                                                                <label for="alamat" class="col-sm-3 col-form-label">Alamat Pembelian Barang<span style="color: red">*</span></label>
+                                                                <div class="col-sm-9">
+                                                                    <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat">{{ $barang->alamat }}</textarea>
+                                                                </div>
+                                                            </div>
+                                                            <hr />
+                                                            <div class="mb-3 row">
+                                                                <label for="nama_bank" class="col-sm-3 col-form-label">Nama Bank<span style="color: red">*</span></label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" id="nama_bank" name="nama_bank" placeholder="Masukkan Nama Bank" value="{{ $barang->nama_bank }}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-3 row">
+                                                                <label for="nomor_rekening" class="col-sm-3 col-form-label">Nomor Rekening<span style="color: red">*</span></label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" id="nomor_rekening" name="nomor_rekening" placeholder="Masukkan Nomor Rekening" value="{{ $barang->nomor_rekening }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary text-white">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 
                                 <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $barang->id }}">Hapus</a>
                                 <!-- Modal -->
