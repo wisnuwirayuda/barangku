@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Officer\OfficerController;
+use App\Http\Controllers\Manager\ManagerController;
 
 Route::get('/', [LoginController::class, 'show'])->name('login');
 Route::post('login', [LoginController::class, 'login'])->name('auth.login');
@@ -16,13 +17,9 @@ Route::middleware(['auth'])->group(function () {
     Route::put('update/{id}', [OfficerController::class, "update"])->name('officer.update');
     Route::delete('delete/{id}', [OfficerController::class, "delete"])->name('officer.delete');
 
-    Route::get('manager', function () {
-        return view('pages.manager.home');
-    })->name('manager.home');
-
-    Route::get('manager/history', function () {
-        return view('pages.manager.history');
-    })->name('manager.history');
+    Route::get('manager', [ManagerController::class, "show"])->name('manager.home');
+    Route::get('manager/history', [ManagerController::class, "history"])->name('manager.history');
+    Route::put('update/{id}', [ManagerController::class, "update"])->name('manager.update');
 
     Route::get('finance', function () {
         return view('pages.finance.home');

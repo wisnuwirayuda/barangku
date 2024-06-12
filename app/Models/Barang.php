@@ -19,6 +19,7 @@ class Barang extends Model
         'nomor_rekening',
         'user_id',
         'slug',
-        'status'
+        'status',
+        'alasan'
     ];
 }

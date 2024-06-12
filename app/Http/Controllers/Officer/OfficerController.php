@@ -45,7 +45,6 @@ class OfficerController extends Controller
     }
 
     public function update(Request $request, $id) {
-        dd($request->all());
         $validatedData = $request->validate([
             'nama_barang'       => 'required|string|max:255',
             'quantity'          => 'required|integer',
