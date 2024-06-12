@@ -20,6 +20,7 @@ class Barang extends Model
         'user_id',
         'slug',
         'status',
-        'alasan'
+        'alasan',
+        'manager_id',
     ];
 }

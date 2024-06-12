@@ -16,20 +16,24 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach($dataBarang as $barang)
                   <tr>
-                    <td>1</td>
-                    <td>Komputer</td>
-                    <td>5</td>
-                    <td>5</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $barang->nama_barang }}</td>
+                    <td>{{ $barang->quantity }}</td>
+                    <td>{{ $barang->alamat }}</td>
                     <td>
-                        <div class="btn btn-success" style="cursor: default;">
-                            Sudah Disetujui
-                        </div>
+                      @if($barang->status == 'Disetujui')
+                        <div class="btn btn-success" style="cursor: default;">{{ $barang->status }}</div>
+                      @else
+                        <div class="btn btn-danger" style="cursor: default;">{{ $barang->status }}</div>
+                      @endif
                     </td>
                     <td>
-                        2024-06-15 14:00
+                      {{ $barang->updated_at }}
                     </td>
                   </tr>
+                  @endforeach
                 </tbody>
             </table>
         </div>
