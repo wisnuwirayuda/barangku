@@ -70,7 +70,7 @@
                                                             </div>
                                                             <div class="col">
                                                                 <div class="fs-6">Bukti Transfer</div>
-                                                                <div class="fs-5 fw-medium">{{ $barang->bukti_transfer }}</div>
+                                                                <img src="{{ asset('uploads/' . $barang->bukti_transfer) }}" class="rounded float-start" alt="bukti_transfer" width="200">
                                                             </div>
                                                         </div>
                                                         <div class="mb-3 row">
