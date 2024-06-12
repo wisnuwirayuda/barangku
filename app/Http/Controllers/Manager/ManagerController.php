@@ -21,7 +21,7 @@ class ManagerController extends Controller
         return view('pages.manager.history', compact('dataBarang'));
     }
 
-    public function update(Request $request, $id) {
+    public function updateDataForm(Request $request, $id) {
         $request->validate([
             'status' => 'required|string',
             'alasan' => 'nullable|string'

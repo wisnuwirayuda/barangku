@@ -20,7 +20,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('manager', [ManagerController::class, "show"])->name('manager.home');
     Route::get('manager/history', [ManagerController::class, "history"])->name('manager.history');
-    Route::put('update/{id}', [ManagerController::class, "update"])->name('manager.update');
+    Route::put('updateDataForm/{id}', [ManagerController::class, "updateDataForm"])->name('manager.update');
 
     Route::get('finance', [FinanceController::class, "show"])->name('finance.home');
     Route::put('update/{id}', [FinanceController::class, "update"])->name('finance.update');
